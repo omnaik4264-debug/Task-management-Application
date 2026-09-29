@@ -1,0 +1,17 @@
+{
+  "name": "task-management-application",
+  "version": "1.0.0",
+  "description": "Full-stack Task Management Application with authentication, CRUD REST API, authorization, responsive UI and real-time updates.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "task-manager",
+    "nodejs",
+    "rest-api",
+    "internship"
+  ],
+  "license": "MIT"
+}
