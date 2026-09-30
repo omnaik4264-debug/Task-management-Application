@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TaskFlow | Task Management</title><link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="toast"></div>
+
+<section id="authView" class="auth-shell">
+  <div class="brand-panel">
+    <div class="logo">✓</div><h1>TaskFlow</h1>
+    <p>Plan clearly. Work efficiently. Finish on time.</p>
+    <div class="feature-list"><span>✓ Secure user accounts</span><span>✓ Organize tasks by priority</span><span>✓ Track progress in real time</span></div>
+  </div>
+  <div class="auth-card">
+    <div class="tabs"><button id="loginTab" class="active">Login</button><button id="registerTab">Register</button></div>
+    <form id="loginForm">
+      <h2>Welcome back</h2><p class="muted">Sign in to manage your tasks.</p>
+      <label>Email</label><input id="loginEmail" type="email" required placeholder="you@example.com">
+      <label>Password</label><input id="loginPassword" type="password" required minlength="6" placeholder="••••••••">
+      <button class="primary wide">Login</button>
+    </form>
+    <form id="registerForm" class="hidden">
+      <h2>Create account</h2><p class="muted">Start organizing your work.</p>
+      <label>Name</label><input id="regName" required maxlength="60" placeholder="Your name">
+      <label>Email</label><input id="regEmail" type="email" required placeholder="you@example.com">
+      <label>Password</label><input id="regPassword" type="password" required minlength="6" placeholder="Minimum 6 characters">
+      <button class="primary wide">Register</button>
+    </form>
+  </div>
+</section>
+
+<section id="appView" class="hidden">
+  <header class="topbar">
+    <div class="brand"><span class="logo small">✓</span><strong>TaskFlow</strong></div>
+    <div class="user-area"><span id="welcome"></span><button id="logoutBtn" class="ghost">Logout</button></div>
+  </header>
+  <main class="dashboard">
+    <div class="hero"><div><p class="eyebrow">TASK MANAGEMENT DASHBOARD</p><h1>Stay focused. Get it done.</h1><p>Manage priorities, deadlines and progress from one place.</p></div><button id="newTaskBtn" class="primary">+ New Task</button></div>
+
+    <div class="stats">
+      <article><span>Total tasks</span><strong id="totalCount">0</strong></article>
+      <article><span>Pending</span><strong id="pendingCount">0</strong></article>
+      <article><span>In progress</span><strong id="progressCount">0</strong></article>
+      <article><span>Completed</span><strong id="completedCount">0</strong></article>
+    </div>
+
+    <section class="workspace">
+      <div class="toolbar">
+        <input id="search" placeholder="Search tasks...">
+        <select id="statusFilter"><option value="all">All statuses</option><option>Pending</option><option>In Progress</option><option>Completed</option></select>
+        <select id="priorityFilter"><option value="all">All priorities</option><option>High</option><option>Medium</option><option>Low</option></select>
+      </div>
+      <div id="taskGrid" class="task-grid"></div>
+      <div id="emptyState" class="empty hidden"><div>✓</div><h3>No tasks found</h3><p>Create a task or change your filters.</p></div>
+    </section>
+  </main>
+</section>
+
+<div id="modal" class="modal hidden">
+ <div class="modal-card">
+  <div class="modal-head"><h2 id="modalTitle">New Task</h2><button id="closeModal" class="icon-btn">×</button></div>
+  <form id="taskForm">
+    <input id="taskId" type="hidden">
+    <label>Task title</label><input id="title" required maxlength="120" placeholder="e.g. Complete project report">
+    <label>Description</label><textarea id="description" maxlength="1000" placeholder="Add task details..."></textarea>
+    <div class="form-grid">
+      <div><label>Due date</label><input id="dueDate" type="date"></div>
+      <div><label>Priority</label><select id="priority"><option>Low</option><option selected>Medium</option><option>High</option></select></div>
+      <div><label>Status</label><select id="status"><option>Pending</option><option>In Progress</option><option>Completed</option></select></div>
+    </div>
+    <div class="modal-actions"><button type="button" id="cancelBtn" class="ghost">Cancel</button><button class="primary">Save Task</button></div>
+  </form>
+ </div>
+</div>
+<script src="app.js"></script>
+</body></html>
